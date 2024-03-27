@@ -1,0 +1,122 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    * {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(125deg, #EA2027, #230102);
+    }
+
+    .button {
+        width: 170px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 1px 2px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right: 20px;
+        padding-left: 20px;
+        border-radius: 5px;
+        border: solid 2px cornsilk;
+        filter: drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .button1 {
+        background-color: #ffbd06;
+        color: black;
+    }
+
+        .button1:hover {
+            background-color: #abaeab;
+            color: white;
+        }
+
+    .frame-add {
+        /*background-color: rgba(128, 128, 128, 0.25);*/
+        max-width: 450px;
+        width: 500px;
+        height: auto;
+        border: solid 2px cornsilk;
+        display: flex;
+        padding-top: 20px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .frame-input {
+        width: 90%;
+        height: auto;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 5px;
+    }
+
+    .frame-topic {
+        border: solid 2px;
+        max-width: 800px;
+        width: 500px;
+        height: 200px;
+    }
+
+    .img-logo {
+        background-color: #abaeab;
+        width: 200px;
+    }
+</style>
+
+
+
+<form method="post" asp-controller="Home" asp-action="Ina">
+<center>
+    <div class="frame-add">
+
+        <div class="frame-input">
+            <label style="width:30%; padding-top: 3px;padding-bottom: 3px; font-size:20px;font-weight: 200;color:#ffffff " for="">Username :</label>
+            <input style="  width:60%; " type="text" name="user">
+        </div>
+
+
+        <div class="frame-input">
+            <label style="width:30%; padding-top: 3px;padding-bottom: 3px; font-size:20px;font-weight: 200;color:#ffffff " for="">Name :</label>
+            <input style="  width:60%; " type="text" name="nam">
+        </div>
+
+        <div class="frame-input">
+            <label style="width:30%; padding-top: 3px;padding-bottom: 3px; font-size:20px;font-weight: 200;color:#ffffff " for="">Password :</label>
+            <input style="  width:60%; " type="password" name="passw">
+        </div>
+        <div class="frame-input">
+            <label style="width:30%; padding-top: 3px;padding-bottom: 3px; font-size:20px;font-weight: 200;color:#ffffff " for="">Tell :</label>
+            <input style="  width:60%; " type="tel" name="tel">
+        </div>
+        <div class="frame-input">
+            <p style="color:rgba(255, 237, 237, 0.768);">If you have account ? <a onclick="location.href='@Url.Action("Index", "Home")'" style="color:#EAA90C;">Login</a></p>
+
+        </div>
+
+        <div>
+            <center>
+                    <button class="button button1">Register </button>
+            </center>
+        </div>
+    </div>
+</center>
+<center>@ViewBag.ou</center>
+</form>

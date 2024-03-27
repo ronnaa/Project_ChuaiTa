@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model WebApplication1.Models.menu
+}
+<form method="post" asp-controller="Home" asp-action="addmenu">
+<div>
+    <div class="flex-item">
+        <center><img class="img-topic" src="https://media.discordapp.net/attachments/1035452783442264094/1036302569179459684/2.png" alt="picture;"></center>
+    </div>
+
+
+    <div class="flex-item">
+
+        <center>
+            <p class="detail">@ViewBag.idstore</p>
+        </center>
+    </div>
+
+    <div class="flex-item">
+        <center> <img class="img-food" src="https://cdn.discordapp.com/attachments/1035452783442264094/1036318740817645686/Screenshot_2022-10-30_234008.png" alt="picture"></center>
+    </div>
+
+
+    <div class="flex-item">
+        <div class="container mt-3">
+            <table class="table table-bordered table-sm bgtd">
+                <thead class=" table bgth ">
+                    <tr>
+                        <th>No</th>
+                        <th>Order</th>
+                        <th>Amount</th>
+                        <th>Order person</th>
+                        <th>Price</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < 10;i++)
+                    {
+                        @if (i < ViewBag.listorder.Count)
+                        {
+                            <tr>
+                                <td>@(i+1)</td>
+                                <td>@ViewBag.listorder[i].men</td>
+                                <td>@ViewBag.listorder[i].amount</td>
+                                <td>@ViewBag.listorder[i].name</td>
+                                <td>@ViewBag.listorder[i].price</td>
+                                <td>@ViewBag.listorder[i].note</td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                                <td> </td>
+                            </tr>
+                        }
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<center>
+    <div class="frame-add">
+        <div class="frame-input">
+            <label style=" width:30%; font-size:20px;font-weight: bold;color:#ffffff ;padding-right: 20px;padding-left: 20px; padding-top: 5px; padding-bottom: 10px" for="">Menu:</label>
+                <input style=" width:60%; " type="text" name="namemen">
+        </div>
+        <div class="frame-input">
+            <label style=" width:30%; font-size:20px;font-weight: bold;color:#ffffff ;padding-right: 20px;padding-left: 20px; padding-top: 5px; padding-bottom: 10px" for="">Amount:</label>
+                <input style=" width:60%; " type="number" min="0" step="1" name="amount">
+        </div>
+        <div class="frame-input">
+            <label style=" width:30%; font-size:20px;font-weight: bold;color:#ffffff ;padding-right: 20px;padding-left: 20px; padding-top: 5px; padding-bottom: 10px" for="">Price:</label>
+                <input style=" width:60%; " type="number" min="0" step="1" name="price">
+        </div>
+        <div class="frame-input">
+            <label style=" width:30%; font-size:20px;font-weight: bold;color:#ffffff ;padding-right: 20px;padding-left: 20px; padding-top: 5px; padding-bottom: 10px" for="">Note:</label>
+                <input style=" width:60%; " type="text" name="note">
+        </div>
+        <div>
+            <center>
+                <button class="button button1">ADD MENU </button>
+            </center>
+        </div>
+
+    </div>
+</center>
+</form>

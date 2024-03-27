@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - WebApplication1</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css%22%3E">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        @if (ViewBag.name != null)
+        {
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  navbar-dark Bg border-bottom box-shadow mb-3 fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand">CHUAI TA</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav">
+                    <li class="nav-item T1">
+                        <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="home">HOME</a>
+                    </li>
+                            @if (ViewBag.listorder.Count != 0)
+                            {
+                                <li class="nav-item T1">
+                                        <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="close_menu">Order list</a>
+                                </li>
+                            }
+                </ul>
+
+                </div>
+                <ul class="navbar-nav ">
+                        @if (ViewBag.bell.Count == 0)
+                        {
+                            <li class="nav-item T1 button_bell">
+                                <img src="https://cdn.discordapp.com/attachments/1035452783442264094/1043086999827005440/bell-1.png"
+                                  alt="Logo" style="width:50px;" class="rounded-pill">
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item T1 dropdown button_bell">
+                                <img src="https://cdn.discordapp.com/attachments/1035452783442264094/1043086999344648233/bell-2.png"
+                                    asp-area="" asp-controller="" asp-action="" alt="Logo" style="width:50px;" class="rounded-pill nav-link active dropdown-toggle" role="button" data-toggle="dropdown">
+                                <div class="dropdown-menu-right dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -150px;">
+                                    @for (int i = 0;i < ViewBag.bell.Count;i++)
+                                    {
+                                    <a class="dropdown-item">@ViewBag.bell[i]</a>
+                                    }
+                                </div>
+                            </li>
+                        }
+                        <li class="nav-item T1 dropdown">
+                            <a class="nav-link active dropdown-toggle" role="button" data-toggle="dropdown">@ViewBag.name</a>
+                            <div class="dropdown-menu-right dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="left: -10px;">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="log_out">Log Out</a>
+                        </div>
+                    </li>
+                    
+                     
+                </ul>
+                    
+            </div>
+        </nav>
+        }
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

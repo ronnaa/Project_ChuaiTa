@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>@ViewData["Title"] - WebApplication1</title>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+}
+<div>
+    <div class="flex-container">
+
+        <div class="flex-item">
+            <center><img class="img-topic" src="https://media.discordapp.net/attachments/1035452783442264094/1036302569179459684/2.png" alt="picture;"></center>
+        </div>
+
+
+        <div class="flex-item">
+
+            <center>
+                <p class="detail">@ViewBag.idstore</p>
+            </center>
+        </div>
+
+        <div class="flex-item">
+            <center> <img class="img-food" src="https://cdn.discordapp.com/attachments/1035452783442264094/1036318740817645686/Screenshot_2022-10-30_234008.png" alt="picture"></center>
+        </div>
+
+        <div>
+            <center>
+                <button class="button button1" onclick="location.href='@Url.Action("total_list", "Home")'">CLOSE </button>
+            </center>
+        </div>
+        <div class="flex-item">
+            <div class="container mt-3">
+                <table class="table table-bordered table-sm bgtd">
+                    <thead class=" table bgth ">
+                        <tr>
+                            <th>No</th>
+                            <th>Order</th>
+                            <th>Amount</th>
+                            <th>Order person</th>
+                            <th>Price</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < 10; i++)
+                        {
+                            @if (i < ViewBag.listorder.Count)
+                            {
+                                <tr>
+                                    <td>@(i + 1)</td>
+                                    <td>@ViewBag.listorder[i].men</td>
+                                    <td>@ViewBag.listorder[i].amount</td>
+                                    <td>@ViewBag.listorder[i].name</td>
+                                    <td>@ViewBag.listorder[i].price</td>
+                                    <td>@ViewBag.listorder[i].note</td>
+                                </tr>
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
